@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+}
+
+.header-left img {
+  max-height: 40px;
+  display: none;
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+}
+
+.main-links a {
+  margin-right: 10px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.sub-links a {
+  display: block;
+  margin-top: 5px;
+}
+
+.sub-links a:hover {
+  color: blue; /* Change as needed */
+}
