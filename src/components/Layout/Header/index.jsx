@@ -34,7 +34,7 @@ const Header = () => {
             <ul>
               {dropdownItems.map((item, index) => (
                 <li key={index}>
-                  <a href={item.url}>{item.label}</a>
+                  <Link href={item.id}>{item.label}</Link>
                   {item.subItems ? (
                     <ul className="sub-navigation">
                       {item.subItems.map((subItem, subIndex) => (
