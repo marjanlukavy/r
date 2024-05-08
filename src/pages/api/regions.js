@@ -16,10 +16,7 @@ export default function handler(req, res) {
   }
 }
 
-// Function to fetch data based on label and id
 function fetchData(label, id) {
-  // Here you can implement your logic to fetch data from a database or an external API
-  // For simplicity, let's assume we have some hardcoded data
   const regionsData = {
     zakarpattia: [
       {

@@ -7,20 +7,41 @@ import Footer from "@/components/Layout/Footer";
 const BlogPage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const params = useParams();
   const router = useRouter();
-
+  const params = useParams();
+  console.log(params?.sublinkId[1]);
   useEffect(() => {
     const fetchData = async () => {
+      if (!params?.sublinkId[0] || !params?.sublinkId[1]) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(
           `/api/regions?label=${params.sublinkId[0]}&id=${params.sublinkId[1]}`
         );
         if (response.ok) {
           const jsonData = await response.json();
-          setData(jsonData);
+          if (jsonData) {
+            setData(jsonData);
+          }
         } else {
-          console.error("Failed to fetch data");
+          const response = await fetch(`http://localhost:5000/region`);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const regions = await response.json();
+          const regionData = regions[params?.sublinkId[0]];
+          const item = regionData?.find(
+            (item) => item.id === params?.sublinkId[1]
+          );
+          console.log(item);
+          if (item) {
+            setData({ content: item });
+          } else {
+            console.error("Data not found in local JSON");
+          }
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -30,7 +51,7 @@ const BlogPage = () => {
     };
 
     fetchData();
-  }, [params]);
+  }, [params?.sublinkId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -39,7 +60,6 @@ const BlogPage = () => {
   if (!data) {
     return <div>Error: Data not found</div>;
   }
-
   return (
     <>
       <Header />

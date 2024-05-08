@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "4bc5",
+      "username": "dsada",
+      "password": "12345678",
+      "email": "marian@nerdz.com"
+    },
+    {
+      "id": "2685",
+      "username": "dsada",
+      "password": "12345678",
+      "email": "marian@nerdz.com"
+    },
+    {
+      "id": "1526",
+      "username": "dsada",
+      "password": "12345678",
+      "email": "marian@nerdz.com"
+    },
+    {
+      "id": "9eed",
+      "username": "marian@nerdz.com",
+      "password": "12345678",
+      "email": "marian@nerdz.com"
+    },
+    {
+      "id": "8697",
+      "username": "Marian",
+      "password": "12345678",
+      "email": "mlda@gmail.com"
+    }
+  ],
+  "region": {
+    "zakarpattia": [],
+    "volyn": [],
+    "zaporizhzhia": [],
+    "ivano_frankivsk": [],
+    "kyiv": [],
+    "lviv": [],
+    "odesa": [],
+    "rivne": [],
+    "sumy": [],
+    "ternopil": [],
+    "kharkiv": [],
+    "kherson": [],
+    "khmelnytskyi": [],
+    "biosferni": [],
+    "pryrodni": []
+  }
+}
