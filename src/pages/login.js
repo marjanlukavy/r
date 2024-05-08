@@ -27,11 +27,11 @@ const Login = () => {
         login(users[0]);
         router.push("/");
       } else {
-        alert("Invalid username or password.");
+        alert("Невірне ім'я користувача або пароль.");
       }
     } catch (error) {
-      console.error("Login failed", error);
-      alert("Error during login.");
+      console.error("Вхід не вдалося", error);
+      alert("Помилка під час входу.");
     }
   };
 
@@ -41,9 +41,9 @@ const Login = () => {
       <main>
         <div className={styles.container}>
           <form onSubmit={handleSubmit} className={styles.form}>
-            <h2>Login</h2>
+            <h2>Вхід</h2>
             <div className={styles.inputGroup}>
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username">Ім'я користувача:</label>
               <input
                 type="text"
                 id="username"
@@ -54,7 +54,7 @@ const Login = () => {
               />
             </div>
             <div className={styles.inputGroup}>
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">Пароль:</label>
               <input
                 type="password"
                 id="password"
@@ -65,10 +65,13 @@ const Login = () => {
               />
             </div>
             <button type="submit" className={styles.button}>
-              Login
+              Увійти
             </button>
             <div className={styles.registerLink}>
-              Don't have an account? <Link href="/register">Register here</Link>
+              Немаєте облікового запису?{" "}
+              <Link href="/register">
+                <b>Зареєструйтесь тут</b>
+              </Link>
             </div>
           </form>
         </div>

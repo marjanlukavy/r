@@ -44,9 +44,9 @@ export default function Register() {
 
       <div className={styles.container}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <h1>Create Account</h1>
+          <h1>Створити аккаунт</h1>
           <div className={styles.inputGroup}>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Ім'я:</label>
             <input
               type="text"
               id="username"
@@ -57,7 +57,7 @@ export default function Register() {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Пошта:</label>
             <input
               type="email"
               id="email"
@@ -68,7 +68,7 @@ export default function Register() {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Пароль:</label>
             <input
               type="password"
               id="password"
@@ -79,7 +79,7 @@ export default function Register() {
             />
           </div>
           <button type="submit" className={styles.button}>
-            Register
+            Зареєструйтесь
           </button>
         </form>
       </div>
