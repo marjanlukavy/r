@@ -9,7 +9,7 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const params = useParams();
-  console.log(params?.sublinkId[1]);
+  console.log(data);
   useEffect(() => {
     const fetchData = async () => {
       if (!params?.sublinkId[0] || !params?.sublinkId[1]) {
@@ -65,9 +65,17 @@ const BlogPage = () => {
       <Header />
 
       <div className="blog-page">
-        <div className="jumbotron">
+        <div
+          className="jumbotron"
+          style={{
+            backgroundImage: `url(${data.content.image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <h1>{data.content.title}</h1>
         </div>
+
         <div className="breadcrumb">
           <span onClick={() => router.push("/")}>
             <svg

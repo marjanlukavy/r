@@ -9,6 +9,7 @@ const PopupWindow = ({ togglePopup, saveData }) => {
     id: "",
     title: "",
     paragraphs: [],
+    image: "", // Add image field
   });
 
   const parkRegions = [
@@ -34,6 +35,15 @@ const PopupWindow = ({ togglePopup, saveData }) => {
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData({ ...formData, image: reader.result });
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = (e) => {
@@ -102,6 +112,13 @@ const PopupWindow = ({ togglePopup, saveData }) => {
           value={formData.paragraphs.join("\n")}
           onChange={handleChange}
           placeholder="Опис"
+          required
+        />
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={handleImageChange}
           required
         />
         <button type="submit">Зберегти</button>
