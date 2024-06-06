@@ -3,13 +3,21 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import { dropdownItems, dropdownItems1 } from "@/constants/dropdownItems";
+
+function findLabelById(items, id) {
+  const item = items.find((item) => item.id === id);
+  return item ? item.label : null;
+}
 
 const BlogPage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const params = useParams();
-  console.log(data);
+  const label1 = findLabelById(dropdownItems, params?.sublinkId[0]);
+  const label2 = findLabelById(dropdownItems1, params?.sublinkId[0]);
+
   useEffect(() => {
     const fetchData = async () => {
       if (!params?.sublinkId[0] || !params?.sublinkId[1]) {
@@ -111,7 +119,7 @@ const BlogPage = () => {
           <span
           // onClick={() => router.push(`/regions/${router.query.regionId}`)}
           >
-            {data.content.region}
+            {data.content.region ?? label1 ?? label2}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

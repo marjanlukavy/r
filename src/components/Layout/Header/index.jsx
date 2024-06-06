@@ -27,7 +27,7 @@ const Header = () => {
     };
 
     fetchRegionData();
-  }, [updateCounter]); // Update when updateCounter changes
+  }, [updateCounter]);
 
   const [dropdownItems, setDropdownItems] = useState([...dropdownItemsData]);
 

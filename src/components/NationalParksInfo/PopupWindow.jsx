@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid"; // Import UUID library
 
 const PopupWindow = ({ togglePopup, saveData }) => {
   const [tab, setTab] = useState("park");
@@ -48,8 +49,16 @@ const PopupWindow = ({ togglePopup, saveData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveData(formData, selectedRegion);
+    const newFormData = { ...formData, id: uuidv4() }; // Generate a unique ID
+    saveData(newFormData, selectedRegion);
   };
+
+  useEffect(() => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      id: uuidv4(),
+    }));
+  }, [tab]);
 
   return (
     <div className="popup">
@@ -91,14 +100,13 @@ const PopupWindow = ({ togglePopup, saveData }) => {
             ))}
           </select>
         )}
-        <input
-          type="number"
+        {/* <input
+          type="text"
           name="id"
           value={formData.id}
-          onChange={handleChange}
+          readOnly
           placeholder="ID"
-          required
-        />
+        /> */}
         <input
           type="text"
           name="title"
